@@ -78,12 +78,12 @@ void Music::addSongLibrary()
 		{
 			cout << "Rate the song and artist: " << endl;
 			cin >> rating;
-			if (!cin.fail() && rating >= 1 && rating <= 5)
+			if (!cin.fail() && rating >= 1 && rating <= 10)
 				break;
 			else if (cin.fail())
-				cout << "Rating can only be the digits of 1, 2, 3, 4, 5. Please enter a new rating" << endl;
-			else if (rating < 1 || rating > 5)
-				cout << "Rating must be between 1 and 5. Please enter a new rating" << endl;
+				cout << "Rating can only be the digits of 1 through 10. Please enter a new rating" << endl;
+			else if (rating < 1 || rating > 10)
+				cout << "Rating must be between 1 and 10. Please enter a new rating" << endl;
 			cin >> rating;
 		}
 
