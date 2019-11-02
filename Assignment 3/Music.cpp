@@ -35,7 +35,7 @@ int Music::getRating()
 {
 	return rating;
 }
-int Music::getSongLength()
+double Music::getSongLength()
 {
 	return songLength; 
 }
@@ -57,50 +57,45 @@ void Music::setRating(int r)
 {
 	rating = r;
 }
-void Music::setSongLength(int SL)
+void Music::setSongLength(double SL)
 {
 	songLength = SL;
 }
 
 void Music::addSongLibrary() 
 {
-	cout << "Enter the title of the song: " << endl;
-	getline(cin, songTitle, '\n');
-
-	cout << "Enter the name of the artist: " << endl;
-	getline(cin, artistName, '\n');
-
-	cout << "Enter the genre of the song: " << endl;
-	getline(cin, genre); 
-	while (true)
+	do
 	{
-		cout << "Rate the song and artist: " << endl;
-		cin >> rating;
-		if (!cin.fail() && rating >= 1 && rating <= 5)
-			break;
-		else if (cin.fail())
-			cout << "Rating can only be the digits of 1, 2, 3, 4, 5. Please enter a new rating" << endl;
-		else if (rating < 1 || rating > 5)
-			cout << "Rating must be between 1 and 5. Please enter a new rating" << endl;
-		cin >> rating;
-	}
+		cout << "Enter the title of the song: " << endl;
+		getline(cin, songTitle, '\n');
 
-	while (true)
-	{
+		cout << "Enter the name of the artist: " << endl;
+		getline(cin, artistName, '\n');
+
+		cout << "Enter the genre of the song: " << endl;
+		getline(cin, genre);
+		while (true)
+		{
+			cout << "Rate the song and artist: " << endl;
+			cin >> rating;
+			if (!cin.fail() && rating >= 1 && rating <= 5)
+				break;
+			else if (cin.fail())
+				cout << "Rating can only be the digits of 1, 2, 3, 4, 5. Please enter a new rating" << endl;
+			else if (rating < 1 || rating > 5)
+				cout << "Rating must be between 1 and 5. Please enter a new rating" << endl;
+			cin >> rating;
+		}
+
 		cout << "Enter the length of the song: " << endl;
+		double songLength = 0.0;
 		cin >> songLength;
-		if (!cin.fail() && songLength > 0)
-			break;
-		else if (cin.fail())
-			cout << "Please enter the song's length again" << endl;
-		else if (songLength <= 0)
-			cout << "Song length must be greater than 0. Please try again" << endl; 
-		cin >> songLength; 
-	}
+		cin.ignore();
+	} while (songTitle.empty());
 }
 
 //overide function which displays music to console
-ostream &operator << (ostream &os, Music &playlist)
+ostream & operator << (ostream &os, Music &playlist)
 {
 	os << "Music: " << playlist.songTitle << endl;
 	os << "Artist Name: " << playlist.artistName << endl;

@@ -10,7 +10,7 @@ private:
 	string artistName;
 	string genre; 
 	int rating;
-	int songLength; 
+	double songLength{ 0.0 };
 
 public: 
 	//constructors
@@ -22,14 +22,14 @@ public:
 	string getArtistName();
 	string getGenre();
 	int getRating();
-	int getSongLength();
+	double getSongLength();
 
 	//setters
 	void setSongTitle(string ST);
 	void setArtistName(string ArN);
 	void setGenre(string g);
 	void setRating(int r); 
-	void setSongLength(int SL);
+	void setSongLength(double SL);
 
 	void addSongLibrary();
 

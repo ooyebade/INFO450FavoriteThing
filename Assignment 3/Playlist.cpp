@@ -24,7 +24,7 @@ bool Playlist::isDuplicateEntry(Music playlist)
 	return false; 
 }
 
-int Playlist::addSong()
+void Playlist::addSong()
 {
 	Music newPlaylist;
 	newPlaylist.addSongLibrary(); 
@@ -32,13 +32,13 @@ int Playlist::addSong()
 	{
 		cout << "You have already entered a Music with this song title and artist name" << endl; 
 		newPlaylist.~Music();
-		return 0;
+		
 	}
 	else
 	{
 		plist[listsize] = newPlaylist;
 		listsize++; 
-		return 0; 
+	
 	}
 }
 
