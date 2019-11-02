@@ -29,7 +29,8 @@ int main()
 	} while (answer == 'Y');
 
 	myList.displayList(); 
-
+	
+	system("pause"); 
 	return 0; 
 }
 
