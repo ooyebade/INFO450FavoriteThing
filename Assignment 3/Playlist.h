@@ -13,7 +13,7 @@ protected:
 
 public: 
 	Playlist();
-	void addSong(); 
+	int addSong(); 
 	void displayList(); 
 	bool isDuplicateEntry(Music playlist); 
 };
